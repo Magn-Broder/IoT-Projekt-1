@@ -35,20 +35,9 @@ def np_on():
     sleep(0.1)
      
 def np_off():
-    np[0] = (0, 0, 0)
-    np[1] = (0, 0, 0)
-    np[2] = (0, 0, 0)
-    np[3] = (0, 0, 0)
-    np[4] = (0, 0, 0)
-    np[5] = (0, 0, 0)
-    np[6] = (0, 0, 0)
-    np[7] = (0, 0, 0)
-    np[8] = (0, 0, 0)
-    np[9] = (0, 0, 0)
-    np[10] = (0, 0, 0)
-    np[11] = (0, 0, 0)
-    np.write()
-    sleep(0.1)
+    for i in range(12):
+        np[i] = (0, 0, 0)
+        np.write()
 
 # Funtion til GPS og Batterimåler
 def gps_batterimaaler_func():
@@ -92,8 +81,10 @@ def afstand_neopixel_func():
     
         if distance <= 7:
             np_on()
+            sleep(0.1)
         else:
             np_off()
+            sleep(0.1)
             
 # Starter en tråd til funtionerne gps_batterimaaler_func & afstand_neopixel_func
 thread.start_new_thread(gps_batterimaaler_func,())
