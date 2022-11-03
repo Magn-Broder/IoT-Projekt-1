@@ -19,20 +19,9 @@ analog_pin.width(ADC.WIDTH_12BIT)
 
 # Off og on Funktioner til Neopixel led ring
 def np_on():
-    np[0] = (50, 0, 0)
-    np[1] = (50, 0, 0)
-    np[2] = (50, 0, 0)
-    np[3] = (50, 0, 0)
-    np[4] = (50, 0, 0)
-    np[5] = (50, 0, 0)
-    np[6] = (50, 0, 0)
-    np[7] = (50, 0, 0)
-    np[8] = (50, 0, 0)
-    np[9] = (50, 0, 0)
-    np[10] = (50, 0, 0)
-    np[11] = (50, 0, 0)
-    np.write()
-    sleep(0.1)
+    for i in range(12):
+        np[i] = (50, 0, 0)
+        np.write()
      
 def np_off():
     for i in range(12):
