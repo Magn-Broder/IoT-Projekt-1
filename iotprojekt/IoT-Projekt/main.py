@@ -6,7 +6,6 @@ from machine import Pin, ADC
 from hcsr04 import HCSR04
 from time import sleep
 
-
 # Variabler til neopixel ring
 n = 12
 p = 15
@@ -30,7 +29,6 @@ def np_off():
 
 # Funtion til GPS og Batterimåler
 def gps_batterimaaler_func():
-
     while True:
         try:
             # ****** HER BEGYNDER GPS ******
@@ -55,7 +53,6 @@ def gps_batterimaaler_func():
         
             mqtt.web_print(battery_percentage,'_Magn_/feeds/Batterifeed')
             sleep(4)
-            
         except KeyboardInterrupt:
             print('Ctrl-C pressed...exiting')
             mqtt.c.disconnect()
@@ -74,7 +71,7 @@ def afstand_neopixel_func():
         else:
             np_off()
             sleep(0.1)
-            
-# Starter en tråd til funtionerne gps_batterimaaler_func & afstand_neopixel_func
+        
+# Starter to tråde en til gps_batterimaaler_func & en til afstand_neopixel_func
 thread.start_new_thread(gps_batterimaaler_func,())
 thread.start_new_thread(afstand_neopixel_func,())
